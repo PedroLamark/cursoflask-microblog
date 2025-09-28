@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+{% set mensagens = get_flashed_messages() %}
+
+{% if mensagens %}
+    <div class="mensagemerro">
+        {% for msg in mensagens %}
+            {{msg}}
+        {% endfor %}
+    </div>
+{% endif %}
+
+<form method="post" action="/autenticar">
+    Usuário: <input type="text" name="user"> <br>
+    Senha: <input type="password" name="pass">
+    <br>
+    <br>
+    <button type="submit">Entrar</button>
+</form>
+
+{% endblock %}
